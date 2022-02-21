@@ -9,7 +9,7 @@
     <link href="css/fonts.css" rel="stylesheet"/>
     <style media="screen, print" type="text/css">
       html {
-        zoom: 0.85
+        zoom: 0.80
       }
 
       body {
@@ -375,8 +375,8 @@
 
       <% if (barcode_render_engine == 'bmp') { %>
       .barcode {
-        background-image: url(data:image/bmp;base64,<%= barcode_data %>);
-        background-repeat: repeat-y;
+      <!--background-image: url(data:image/bmp;base64,<%= barcode_data %>);-->
+        /*background-repeat: repeat-y;*/
         height: <%= barcode_height %>px;
       }
 
@@ -646,7 +646,7 @@
         <tr>
             <td class="EcdBar Al pL10">
                 <% if (barcode_render_engine == 'bmp') { %>
-                    <div class="barcode"/>
+                    <img class="barcode" src="data:image/bmp;base64,<%= barcode_data %>" width="405" height="<%= barcode_height %>"/>
                 <% } else if (barcode_render_engine == 'img') { %>
                     <div class="barcode">
                         <% var black = true; %>
