@@ -506,7 +506,11 @@
             <td class="w180 Ar">Autenticação mecânica</td>
         </tr>
         <tr class="cpN h12">
-            <td class="pL6"><%- boleto['instrucoes'] || '' %></td>
+              <td class="pL6">
+                <% if(boleto['render_instructions']==='payer' || boleto['render_instructions']==='both'){ %>
+                  <%- boleto['instrucoes'] || '' %>
+                <% }%>
+            </td>
             <td class="pL6 Ar"></td>
         </tr>
     </table>
@@ -599,7 +603,11 @@
         <tr class="rc6">
             <td class="w478">
                 <div class="ctN pL10">Instruções (Texto de responsabilidade do beneficiário)</div>
-                <div class="cpN pL10"><%- boleto['instrucoes'] || '' %></div>
+                <div class="cpN pL10">
+                  <% if(boleto['render_instructions']==='bank' || boleto['render_instructions']==='both'){ %>
+                    <%- boleto['instrucoes'] || '' %>
+                  <% } %>
+                </div>
             </td>
             <td class="w186">
                 <div class="t">(-) Desconto / Abatimentos</div>
